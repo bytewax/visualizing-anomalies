@@ -1,2 +1,2 @@
 rerun-sdk
-bytewax==0.15.0
+bytewax==0.15.1
