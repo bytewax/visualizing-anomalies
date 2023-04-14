@@ -16,7 +16,7 @@ rr.spawn()
 
 start = datetime.now()
 
-def input_builder(worker_index, worker_count, resume_state):
+def generate_random_metrics(worker_index, worker_count, resume_state):
     assert resume_state is None
     keys = ["1", "2", "3", "4", "5", "6"]
     this_workers_keys = distribute(keys, worker_index, worker_count)
@@ -97,7 +97,7 @@ def output_builder(worker_index, worker_count):
 
 if __name__ == '__main__':
     flow = Dataflow()
-    flow.input("input", ManualInputConfig(input_builder))
+    flow.input("input", ManualInputConfig(generate_random_metrics))
     # ("metric", value)
     flow.stateful_map("AnomalyDetector", lambda: ZTestDetector(2.0), ZTestDetector.push)
     # ("metric", (value, mu, sigma, is_anomalous))
