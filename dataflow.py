@@ -22,7 +22,7 @@ def input_builder(worker_index, worker_count, resume_state):
     this_workers_keys = distribute(keys, worker_index, worker_count)
 
     for _ in range(1000):
-        for key in keys:
+        for key in this_workers_keys:
             value = random.randrange(0, 10)
             if random.random() > 0.9:
                 value *= 2.0
