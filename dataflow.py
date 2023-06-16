@@ -13,7 +13,7 @@ rr.init("warehouse sensors")
 rr.connect(addr="0.0.0.0:9876")
 
 flow = Dataflow()
-flow.input("input", KafkaInput(["localhost:19092"], ["sensors"], starting_offset=-1))
+flow.input("input", KafkaInput(["localhost:19092"], ["sensors"]))
 # ("sensor_id", "{"ts":"2023..."}")
 
 # flow.inspect(print)
